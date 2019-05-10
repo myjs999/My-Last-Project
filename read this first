@@ -1,0 +1,26 @@
+Oh i'm gonna play badminton this afternoon.
+
+wait here is for code?
+
+**bold**
+
+so let's view some code.
+
+void ntt(pol& f, int typ) {
+	int n = f.size();
+	for(int i = 1, j = n>>1; i < n; i++) {
+		if(i < j) swap(f[i], f[j]);
+		for(int k = n>>1; (j ^= k) < k; k >>= 1);
+	}
+	for(int i = 1; i < n; i <<= 1) for(int j = 0; j < n; j += i<<1) for(int k = 0; k < i; k++) {
+		int u = f[j+k], v = mul(w[typ][i+k], f[j+i+k]);
+		f[j+k] = add(u, v);
+		f[j+i+k] = sub(u, v);
+	}
+	if(!typ) {
+		int invn = inv(n);
+		for(int i = 0; i < n; i++) f[i] = mul(f[i], invn);
+	}
+}
+
+to P or T?
